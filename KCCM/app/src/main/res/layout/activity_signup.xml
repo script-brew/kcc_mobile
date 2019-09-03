@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.RegisterActivity">
+
+
+    <EditText
+        android:id="@+id/signup_idtext"
+        android:layout_marginTop="130dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="아이디" />
+
+    <EditText
+        android:id="@+id/signup_passwordtext"
+        android:layout_marginTop="170dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="비밀번호" />
+
+    <EditText
+        android:id="@+id/signup_nametext"
+        android:layout_marginTop="210dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="이름" />
+
+    <EditText
+        android:id="@+id/signup_birthdaytext"
+        android:layout_marginTop="250dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="나이" />
+
+    <Button
+        android:id="@+id/signup_button"
+        android:layout_marginTop="300dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="회원가입" />
+
+</RelativeLayout>

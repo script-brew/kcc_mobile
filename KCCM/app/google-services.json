@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "980823612878",
+    "firebase_url": "https://mobile-kcc.firebaseio.com",
+    "project_id": "mobile-kcc",
+    "storage_bucket": "mobile-kcc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980823612878:android:12cc3165bc9fd935",
+        "android_client_info": {
+          "package_name": "com.kcc.kccm_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980823612878-b75uoofr7pu4qkc9g0823mfdk19ighp1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCefSZZKic1JNrjwIW3lhBH74n1wZ04AQk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980823612878-b75uoofr7pu4qkc9g0823mfdk19ighp1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
