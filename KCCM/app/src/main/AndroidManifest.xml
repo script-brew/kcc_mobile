@@ -16,7 +16,7 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".ui.RegisterActivity" />
-        <activity android:name=".ui.Dues.DuesPostActivity"/>
+        <activity android:name=".ui.MakeFriend.MakefriendPostActivity"/>
         <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.LoginResultActivity" />
     </application>
 
 </manifest>

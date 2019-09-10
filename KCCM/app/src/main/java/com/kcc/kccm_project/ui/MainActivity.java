@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.navigation.NavigationView;
 import com.kcc.kccm_project.R;
 import com.kcc.kccm_project.ui.Dues.DuesLayout;
+import com.kcc.kccm_project.ui.MakeFriend.MakefriendLayout;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -80,10 +81,10 @@ public class MainActivity extends AppCompatActivity
         Fragment frg = null;
         int id = item.getItemId();
 
-        if (id == R.id.nav_dues_layout) {
+        if (id == R.id.nav_makefreind_layout) {
+            frg = new MakefriendLayout();
+        } else if (id == R.id.nav_dues_layout) {
             frg = new DuesLayout();
-        } else if (id == R.id.nav_makefreind_layout) {
-            frg = new MakeFriendLayout();
         } else if (id == R.id.nav_schedule_layout) {
             frg = new ScheduleLayout();
         } else if (id == R.id.nav_study_layout) {

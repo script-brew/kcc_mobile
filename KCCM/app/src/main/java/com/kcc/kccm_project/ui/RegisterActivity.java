@@ -81,6 +81,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String password = mPassword.getText().toString();
 
         UserInfo userInfo = new UserInfo(uid, email, password, name, birthday);
+        
         return userInfo;
     }
 
