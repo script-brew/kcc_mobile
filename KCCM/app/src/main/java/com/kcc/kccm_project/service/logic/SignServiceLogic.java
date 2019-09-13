@@ -9,7 +9,7 @@ import com.kcc.kccm_project.util.ConversionUtil;
 public class SignServiceLogic implements SignService
 {
     private SignStore signStore;
-    private String url = "https://us-central1-mobile-kcc.cloudfunctions.net/signup";
+    // private String url = "https://us-central1-mobile-kcc.cloudfunctions.net/signup";
 
     public SignServiceLogic()
     {

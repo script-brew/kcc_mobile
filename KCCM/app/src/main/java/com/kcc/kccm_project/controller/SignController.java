@@ -37,7 +37,7 @@ public class SignController
         }
 
         String response = signService.registerUser(userInfo);
-        return  response;
+        return response;
     }
-
-}
+    
+} // end class SignController
