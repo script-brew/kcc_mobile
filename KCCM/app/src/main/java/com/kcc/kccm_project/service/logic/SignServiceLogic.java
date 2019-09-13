@@ -19,6 +19,7 @@ public class SignServiceLogic implements SignService
     @Override
     public String registerUser(UserInfo userInfo)
     {
+        //TODO: userINfo에 있는 내용중 유효하지 않는 데이터가 있을 경우 예외 처리 발생 기능 구현
         String response = signStore.create(userInfo);
         return response;
     }

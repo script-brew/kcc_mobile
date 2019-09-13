@@ -14,7 +14,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.auth.User;
 import com.kcc.kccm_project.R;
+import com.kcc.kccm_project.controller.SignController;
+import com.kcc.kccm_project.util.signUtill.NullValueException;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener
 {
@@ -22,6 +25,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText mPassword;
 
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private SignController signController = new SignController();
 
 
     @Override
@@ -48,26 +52,31 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.sign_signinbutton:
-                mAuth.signInWithEmailAndPassword(mEmail.getText().toString(),mPassword.getText().toString())
-                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>()
-                        {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task)
-                            {
-                                if ( task.isSuccessful() )
-                                {
+                try {
+                    String response = signController.signIn(mEmail.getText().toString(), mPassword.getText().toString());
+                    if(response.equals("OK")) {
+                        mAuth.signInWithEmailAndPassword(mEmail.getText().toString(), mPassword.getText().toString())
+                                .addOnCompleteListener(this, (task -> {
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    if ( user != null ) {
-                                        startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                                    }
-                                } else {
-                                    Toast.makeText(LoginActivity.this, "Authentication failed.",Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+                                    if (user != null)
+                                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                    Toast.makeText(this, "Success to sign in!", Toast.LENGTH_SHORT).show();
+
+                                }))
+                                .addOnFailureListener(this, (task -> {
+                                    Toast.makeText(this, "Fail to sign in!", Toast.LENGTH_SHORT).show();
+                                }));
+                    } else {
+
+                    }
+
+                } catch (NullValueException e) {
+                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
                 break;
 
         } // end switch
 
     } // end onClick
 } // end class LoginActivity
+

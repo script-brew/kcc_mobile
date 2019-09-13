@@ -44,5 +44,17 @@ public class SignController
         String response = signService.registerUser(userInfo);
         return response;
     }
+
+    public String signIn(String email, String password) {
+        if(email == null) {
+            throw new NullValueException("email value is null");
+        }
+
+        if(password == null) {
+            throw new NullValueException("password value is null");
+        }
+
+        return "OK";
+    }
     
 } // end class SignController

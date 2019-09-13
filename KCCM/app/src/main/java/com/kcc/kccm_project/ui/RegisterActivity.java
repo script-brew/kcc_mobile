@@ -74,6 +74,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
+    //사용자가 입력한 유저의 정보 userInfo 객체로 만드는 메소드
     private UserInfo setUserInfo()
     {
 
