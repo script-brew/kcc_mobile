@@ -1,4 +1,4 @@
-package com.kcc.kccm_project.util;
+package com.kcc.kccm_project.util.signUtill;
 
 public class NoSuchUserException extends RuntimeException
 {

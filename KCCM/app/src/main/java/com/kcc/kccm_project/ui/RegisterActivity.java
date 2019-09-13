@@ -16,6 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.kcc.kccm_project.Entity.UserInfo;
 import com.kcc.kccm_project.R;
 import com.kcc.kccm_project.controller.SignController;
+import com.kcc.kccm_project.util.signUtill.NullValueException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,22 +44,30 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view)
     {
         UserInfo userInfo = setUserInfo();
-        String response = signController.signUp(userInfo);
-        if(response.equals("OK")) {
-            mAuth.createUserWithEmailAndPassword(userInfo.getEmail(), userInfo.getPassword())
-                    .addOnCompleteListener(this, (task) -> {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(RegisterActivity.this, "Success to sign up!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(RegisterActivity.this, "Sign up error",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    });
-        } else {
-            Toast.makeText(RegisterActivity.this, "Sign up error",
-                    Toast.LENGTH_SHORT).show();
+        try {
+            String response = signController.signUp(userInfo); // 회원가입 유효성 검사
+
+            if (response.equals("OK")) {
+                mAuth.createUserWithEmailAndPassword(userInfo.getEmail(), userInfo.getPassword()) // 로그인 하는 기능
+                        .addOnCompleteListener(this, (task) -> {
+                            if (task.isSuccessful()) { // 회원가입 성공시
+                                Toast.makeText(RegisterActivity.this, "Success to sign up!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(RegisterActivity.this, "Sign up error",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            } else {
+                Toast.makeText(RegisterActivity.this, "Sign up error",
+                        Toast.LENGTH_SHORT).show();
+            }
+
+        } catch(NullValueException e) {
+            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
+        } finally {
+
         }
 
     }

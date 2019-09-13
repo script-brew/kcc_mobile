@@ -1,24 +1,12 @@
 package com.kcc.kccm_project.controller;
 
-import android.util.Log;
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.firebase.client.Firebase;
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.protobuf.NullValue;
 import com.kcc.kccm_project.Entity.UserInfo;
 import com.kcc.kccm_project.service.SignService;
 import com.kcc.kccm_project.service.logic.ServiceFactoryLogic;
-import com.kcc.kccm_project.ui.RegisterActivity;
-import com.kcc.kccm_project.util.NoSuchUserException;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import java.util.ArrayList;
-import java.util.List;
+import com.kcc.kccm_project.util.signUtill.NoSuchUserException;
+import com.kcc.kccm_project.util.signUtill.NullValueException;
 
 public class SignController
 {
@@ -30,10 +18,27 @@ public class SignController
         this.signService = ServiceFactoryLogic.getInstance().createSignService();
     }
 
+    //회원 가입을 하는 데 있어서 빈 문서가 있을 경우 에러 처리
     public String signUp(UserInfo userInfo)
     {
         if(userInfo.getEmail() == null) {
-            throw new NoSuchUserException("xx");
+            throw new NullValueException("email value is null");
+        }
+
+        if(userInfo.getPassword() == null) {
+            throw new NullValueException("password value is null");
+        }
+
+        if(userInfo.getSchoolNumber() == null) {
+            throw new NullValueException("school number value is null");
+        }
+
+        if(userInfo.getDepartment() == null) {
+            throw new NullValueException("department value is null");
+        }
+
+        if(userInfo.getName() == null) {
+            throw new NullValueException("name value is null");
         }
 
         String response = signService.registerUser(userInfo);

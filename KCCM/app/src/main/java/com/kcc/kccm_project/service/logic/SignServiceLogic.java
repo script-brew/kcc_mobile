@@ -19,10 +19,6 @@ public class SignServiceLogic implements SignService
     @Override
     public String registerUser(UserInfo userInfo)
     {
-        /*
-        if(userInfo.getSchoolNumber() == null) {
-            throw new NoSuchUserException("Invalid user info");
-        }*/
         String response = signStore.create(userInfo);
         return response;
     }
