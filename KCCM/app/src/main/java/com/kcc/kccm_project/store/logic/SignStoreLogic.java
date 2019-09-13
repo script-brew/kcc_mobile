@@ -25,12 +25,12 @@ public class SignStoreLogic implements SignStore
     @Override
     public void update(UserInfo userInfo)
     {
-        //TODO
+        // TODO
     }
 
     @Override
     public void delete(String schoolNumber)
     {
-        //TODO
+        // TODO
     }
 }
