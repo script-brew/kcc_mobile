@@ -23,9 +23,10 @@ public class SignServiceLogic implements SignService
     @Override
     public String registerUser(UserInfo userInfo)
     {
-        //TODO: userINfo에 있는 내용중 유효하지 않는 데이터가 있을 경우 예외 처리 발생 기능 구현
-        if(isEmailCorrect(userInfo.getEmail()) && isPasswordCorrect(userInfo.getPassword()))
+        // TODO: userINfo에 있는 내용중 유효하지 않는 데이터가 있을 경우 예외 처리 발생 기능 구현
+        if ( isValidEmail(userInfo.getEmail()) && isValidPassword(userInfo.getPassword()) )
             return signStore.create(userInfo);
+
         else
             throw new InvalidValueException("Invalid Email or password");
     }
@@ -40,35 +41,33 @@ public class SignServiceLogic implements SignService
     @Override
     public void modifyUser(UserInfo userInfo)
     {
-
+        return;
     }
 
     @Override
     public void removeUser(String schoolNumber)
     {
-
+        return;
     }
 
-    private boolean isEmailCorrect(String inputEmail)
+    private boolean isValidEmail(String inputEmail)
     {
         // e-mail regular expression: check input value is whether e-mail-form or not
-        final String emailRegularExpression = "/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/";
-        Pattern pattern = Pattern.compile(emailRegularExpression);
-        Matcher matched = pattern.matcher(inputEmail);
+        final Pattern VALID_EMIAL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = VALID_EMIAL_ADDRESS_REGEX.matcher(inputEmail);
 
         // return true if it's e-mail-form, else return false
-        return matched.find();
+        return matcher.find();
     }
 
-    private boolean isPasswordCorrect(String inputPW)
+    private boolean isValidPassword(String inputPW)
     {
         // password regular expression: check input value is 8 to 15 length, and only alpha-numeric-form
-        final String pwRegularExpression = "/^[A-Za-z0-9]{8,15}$/";
-        Pattern pattern = Pattern.compile(pwRegularExpression);
-        Matcher matched = pattern.matcher(inputPW);
+        final Pattern VALID_PASSWORD_REGEX = Pattern.compile("^[a-zA-Z0-9]+$");
+        Matcher matcher = VALID_PASSWORD_REGEX.matcher(inputPW);
 
         // return true if it's correct-password-form, else return false
-        return matched.find();
+        return matcher.find();
     }
 
 } // end class SignServiceLogic
