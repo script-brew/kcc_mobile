@@ -16,6 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.kcc.kccm_project.Entity.UserInfo;
 import com.kcc.kccm_project.R;
 import com.kcc.kccm_project.controller.SignController;
+import com.kcc.kccm_project.util.signUtill.InvalidValueException;
 import com.kcc.kccm_project.util.signUtill.NullValueException;
 
 import java.util.HashMap;
@@ -66,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         Toast.LENGTH_SHORT).show();
             }
 
-        } catch(NullValueException e) {
+        } catch(NullValueException | InvalidValueException e) {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         } finally {
 

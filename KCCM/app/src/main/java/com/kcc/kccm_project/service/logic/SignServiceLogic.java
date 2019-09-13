@@ -5,6 +5,8 @@ import com.kcc.kccm_project.service.SignService;
 import com.kcc.kccm_project.store.SignStore;
 import com.kcc.kccm_project.store.logic.StoreFactoryLogic;
 import com.kcc.kccm_project.util.ConversionUtil;
+import com.kcc.kccm_project.util.signUtill.InvalidValueException;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,9 +24,10 @@ public class SignServiceLogic implements SignService
     public String registerUser(UserInfo userInfo)
     {
         //TODO: userINfo에 있는 내용중 유효하지 않는 데이터가 있을 경우 예외 처리 발생 기능 구현
-
-        String response = signStore.create(userInfo);
-        return response;
+        if(isEmailCorrect(userInfo.getEmail()) && isPasswordCorrect(userInfo.getPassword()))
+            return signStore.create(userInfo);
+        else
+            throw new InvalidValueException("Invalid Email or password");
     }
 
 
@@ -49,7 +52,7 @@ public class SignServiceLogic implements SignService
     private boolean isEmailCorrect(String inputEmail)
     {
         // e-mail regular expression: check input value is whether e-mail-form or not
-        final String emailRegularExpression = "/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i";
+        final String emailRegularExpression = "/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/";
         Pattern pattern = Pattern.compile(emailRegularExpression);
         Matcher matched = pattern.matcher(inputEmail);
 
