@@ -6,7 +6,7 @@ public class UserInfo
 {
     private String uid;
     private String email;
-    //private String schoolNumber;
+    private String schoolNumber;
     private String password;
     private String name;
     private String department;
@@ -14,7 +14,7 @@ public class UserInfo
     private String signUpDate;
 
 
-    /*public UserInfo()
+    public UserInfo()
     {
         this.signUpDate = DateUtil.today();
     }
@@ -29,16 +29,16 @@ public class UserInfo
         this.name = name;
         this.department = department;
         this.birthday = birthday;
-    }*/
+    }
 
     public UserInfo(String uid, String email, String password, String name, String birthday)
     {
         this.uid = uid;
         this.email = email;
-       // this.schoolNumber = schoolNumber;
+        this.schoolNumber = schoolNumber;
         this.password = password;
         this.name = name;
-        //this.department = department;
+        this.department = department;
         this.birthday = birthday;
     }
 
@@ -61,7 +61,7 @@ public class UserInfo
     {
         this.email = email;
     }
-/*
+
     public String getSchoolNumber() {
         return schoolNumber;
     }
@@ -69,7 +69,7 @@ public class UserInfo
     public void setSchoolNumber(String schoolNumber) {
         this.schoolNumber = schoolNumber;
     }
-*/
+
 
     public String getPassword()
     {
@@ -100,7 +100,7 @@ public class UserInfo
     {
         this.birthday = birthday;
     }
-/*
+
     public String getDepartment() {
         return department;
     }
@@ -118,5 +118,4 @@ public class UserInfo
     public void setSignUpDate(String signUpDate) {
         this.signUpDate = signUpDate;
     }
-    */
 }
