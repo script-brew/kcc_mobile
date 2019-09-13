@@ -24,7 +24,7 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener
 {
     private SignController signController = new SignController();
-    private EditText mEmail,mPassword,mName,mBirthday;
+    private EditText mEmail,mPassword,mName,mBirthday, mSchoolNumber, mDepartment;
     private FirebaseAuth mAuth=FirebaseAuth.getInstance();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -37,6 +37,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         mPassword=findViewById(R.id.signup_passwordtext);
         mName=findViewById(R.id.signup_nametext);
         mBirthday=findViewById(R.id.signup_birthdaytext);
+        mSchoolNumber = findViewById(R.id.signup_schoolnumbertext);
+        mDepartment = findViewById(R.id.signup_departmenttext);
         findViewById(R.id.signup_button).setOnClickListener(this);
     }
 
@@ -65,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             }
 
         } catch(NullValueException e) {
-            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         } finally {
 
         }
@@ -79,8 +81,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String name = mName.getText().toString();
         String birthday = mBirthday.getText().toString();
         String password = mPassword.getText().toString();
+        String department = mDepartment.getText().toString();
+        String schoolNumber = mSchoolNumber.getText().toString();
 
-        UserInfo userInfo = new UserInfo(email, password, name, birthday);
+        UserInfo userInfo = new UserInfo(email,schoolNumber, password, name, department, birthday);
         
         return userInfo;
     }

@@ -27,8 +27,28 @@
         android:hint="비밀번호" />
 
     <EditText
-        android:id="@+id/signup_nametext"
+        android:id="@+id/signup_schoolnumbertext"
         android:layout_marginTop="210dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="학번"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/signup_departmenttext"
+        android:layout_marginTop="250dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="학과"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/signup_nametext"
+        android:layout_marginTop="290dp"
         android:layout_marginRight="50dp"
         android:layout_marginLeft="50dp"
         android:layout_width="match_parent"
@@ -37,16 +57,17 @@
 
     <EditText
         android:id="@+id/signup_birthdaytext"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="3300dp"
         android:layout_marginRight="50dp"
         android:layout_marginLeft="50dp"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:hint="나이" />
 
+
     <Button
         android:id="@+id/signup_button"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="400dp"
         android:layout_marginRight="80dp"
         android:layout_marginLeft="80dp"
         android:layout_width="match_parent"
