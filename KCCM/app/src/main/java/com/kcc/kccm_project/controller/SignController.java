@@ -28,7 +28,7 @@ public class SignController
     public String signUp(UserInfo userInfo)
     {
         String response = signService.registerUser(userInfo);
-        return  response;
+        return response;
     }
-
-}
+    
+} // end class SignController

@@ -7,7 +7,7 @@ import com.kcc.kccm_project.util.RequestUtil;
 
 public class SignStoreLogic implements SignStore
 {
-    private final String signInUrl = "https://us-central1-mobile-kcc.cloudfunctions.net/signup";
+    // private final String signInUrl = "https://us-central1-mobile-kcc.cloudfunctions.net/signup";
     @Override
     public String create(String userInfo)
     {
