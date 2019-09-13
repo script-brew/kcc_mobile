@@ -6,9 +6,14 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.firebase.client.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
 import com.kcc.kccm_project.Entity.UserInfo;
 import com.kcc.kccm_project.service.SignService;
 import com.kcc.kccm_project.service.logic.ServiceFactoryLogic;
+import com.kcc.kccm_project.ui.RegisterActivity;
+import com.kcc.kccm_project.util.NoSuchUserException;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,6 +32,10 @@ public class SignController
 
     public String signUp(UserInfo userInfo)
     {
+        if(userInfo.getEmail() == null) {
+            throw new NoSuchUserException("xx");
+        }
+
         String response = signService.registerUser(userInfo);
         return  response;
     }

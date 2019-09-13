@@ -4,7 +4,6 @@ import com.kcc.kccm_project.util.DateUtil;
 
 public class UserInfo
 {
-    private String uid;
     private String email;
     private String schoolNumber;
     private String password;
@@ -19,10 +18,9 @@ public class UserInfo
         this.signUpDate = DateUtil.today();
     }
 
-    public UserInfo(String uid, String email, String schoolNumber, String password, String name, String department, String birthday)
+    public UserInfo(String email, String schoolNumber, String password, String name, String department, String birthday)
     {
         this();
-        this.uid = uid;
         this.email = email;
         this.schoolNumber = schoolNumber;
         this.password = password;
@@ -31,25 +29,14 @@ public class UserInfo
         this.birthday = birthday;
     }
 
-    public UserInfo(String uid, String email, String password, String name, String birthday)
+    public UserInfo(String email, String password, String name, String birthday)
     {
-        this.uid = uid;
         this.email = email;
         this.schoolNumber = schoolNumber;
         this.password = password;
         this.name = name;
         this.department = department;
         this.birthday = birthday;
-    }
-
-    public String getUid()
-    {
-        return uid;
-    }
-
-    public void setUid(String uid)
-    {
-        this.uid = uid;
     }
 
     public String getEmail()

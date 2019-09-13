@@ -23,9 +23,7 @@ public class SignServiceLogic implements SignService
         if(userInfo.getSchoolNumber() == null) {
             throw new NoSuchUserException("Invalid user info");
         }*/
-
-        String user_Info = ConversionUtil.jsonToString(userInfo);
-        String response = signStore.create(user_Info);
+        String response = signStore.create(userInfo);
         return response;
     }
 

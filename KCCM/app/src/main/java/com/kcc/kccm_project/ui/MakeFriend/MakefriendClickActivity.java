@@ -33,7 +33,7 @@ public class MakefriendClickActivity extends AppCompatActivity {
         mTitleText = findViewById(R.id.makefriend_click_title);
         mContentsText=findViewById(R.id.makefriend_click_contents);
         Intent getIntent = getIntent();
-        id =getIntent.getStringExtra(user.getUid());
+        //id =getIntent.getStringExtra(user.getUid());
         Log.e("ITEM DOCUMENT ID",id);
 
 
