@@ -5,9 +5,12 @@ import com.kcc.kccm_project.Entity.UserInfo;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ConversionUtil {
-    public static String jsonToString(UserInfo userInfo) {
-        try {
+public class ConversionUtil
+{
+    public static String jsonToString(UserInfo userInfo)
+    {
+        try
+        {
             JSONObject userInfoObject = new JSONObject();
             userInfoObject.put("user_id", userInfo.getEmail());
             userInfoObject.put("user_pw", userInfo.getPassword());
@@ -21,11 +24,12 @@ public class ConversionUtil {
             requestObject.put("user_info" , userInfoObject);
 
             return requestObject.toString();
-        } catch (JSONException e) {
+        }
+        catch ( JSONException e )
+        {
             e.printStackTrace();
         }
 
         return "";
     }
 }
-

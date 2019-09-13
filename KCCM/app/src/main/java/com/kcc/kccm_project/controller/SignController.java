@@ -1,7 +1,6 @@
 package com.kcc.kccm_project.controller;
 
 import android.util.Log;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -10,19 +9,19 @@ import com.android.volley.toolbox.StringRequest;
 import com.kcc.kccm_project.Entity.UserInfo;
 import com.kcc.kccm_project.service.SignService;
 import com.kcc.kccm_project.service.logic.ServiceFactoryLogic;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class SignController {
+public class SignController
+{
     private SignService signService;
     RequestQueue queue;
 
-    public SignController() {
+    public SignController()
+    {
         this.signService = ServiceFactoryLogic.getInstance().createSignService();
     }
 

@@ -8,14 +8,17 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class RequestUtil {
-    public String request(String url, String value) {
+public class RequestUtil
+{
+    public String request(String url, String value)
+    {
         OutputStreamWriter osw;
         BufferedReader bufferedReader;
         StringBuilder sb;
         String response;
         HttpURLConnection connection = null;
-        try {
+        try
+        {
             URL requestUrl = new URL(url);
             connection = (HttpURLConnection) requestUrl.openConnection();
 
@@ -30,11 +33,13 @@ public class RequestUtil {
             osw.flush();
             osw.close();
 
-            if(connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+            if ( connection.getResponseCode() == HttpURLConnection.HTTP_OK )
+            {
                 bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 sb = new StringBuilder();
                 String result;
-                while((result = bufferedReader.readLine()) != null) {
+                while ( (result = bufferedReader.readLine()) != null )
+                {
                     sb.append(result);
                 }
 
@@ -42,12 +47,18 @@ public class RequestUtil {
                 return response;
             }
 
-        } catch(MalformedURLException e) {
+        } // end try
+        catch ( MalformedURLException e )
+        {
             e.printStackTrace();
-        } catch(IOException e) {
+        }
+        catch ( IOException e )
+        {
             e.printStackTrace();
-        } finally {
-            if(connection != null)
+        }
+        finally
+        {
+            if ( connection != null )
                 connection.disconnect();
         }
 

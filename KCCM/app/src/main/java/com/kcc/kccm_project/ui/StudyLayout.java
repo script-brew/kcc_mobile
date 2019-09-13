@@ -10,14 +10,17 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.kcc.kccm_project.R;
+
 // 스터디관리 레이아웃
 
-public class StudyLayout extends Fragment {
+public class StudyLayout extends Fragment
+{
     View v;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+    {
         v=inflater.inflate(R.layout.board_study,container,false);
         return v;
     }

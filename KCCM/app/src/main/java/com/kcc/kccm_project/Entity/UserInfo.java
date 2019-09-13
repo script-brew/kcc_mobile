@@ -2,7 +2,8 @@ package com.kcc.kccm_project.Entity;
 
 import com.kcc.kccm_project.util.DateUtil;
 
-public class UserInfo {
+public class UserInfo
+{
     private String uid;
     private String email;
     //private String schoolNumber;
@@ -13,11 +14,13 @@ public class UserInfo {
     private String signUpDate;
 
 
-    /*public UserInfo() {
+    /*public UserInfo()
+    {
         this.signUpDate = DateUtil.today();
     }
 
-    public UserInfo(String uid, String email, String schoolNumber, String password, String name, String department, String birthday) {
+    public UserInfo(String uid, String email, String schoolNumber, String password, String name, String department, String birthday)
+    {
         this();
         this.uid = uid;
         this.email = email;
@@ -27,7 +30,9 @@ public class UserInfo {
         this.department = department;
         this.birthday = birthday;
     }*/
-    public UserInfo(String uid, String email, String password, String name, String birthday) {
+
+    public UserInfo(String uid, String email, String password, String name, String birthday)
+    {
         this.uid = uid;
         this.email = email;
        // this.schoolNumber = schoolNumber;
@@ -37,19 +42,23 @@ public class UserInfo {
         this.birthday = birthday;
     }
 
-    public String getUid() {
+    public String getUid()
+    {
         return uid;
     }
 
-    public void setUid(String uid) {
+    public void setUid(String uid)
+    {
         this.uid = uid;
     }
 
-    public String getEmail() {
+    public String getEmail()
+    {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email)
+    {
         this.email = email;
     }
 /*
@@ -62,26 +71,33 @@ public class UserInfo {
     }
 */
 
-    public String getPassword() {
+    public String getPassword()
+    {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password)
+    {
         this.password = password;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name)
+    {
         this.name = name;
     }
-    public String getBirthday() {
+
+    public String getBirthday()
+    {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(String birthday)
+    {
         this.birthday = birthday;
     }
 /*

@@ -12,12 +12,14 @@ import androidx.fragment.app.Fragment;
 import com.kcc.kccm_project.R;
 
 //스케쥴 레이아웃담당
-public class ScheduleLayout extends Fragment {
+public class ScheduleLayout extends Fragment
+{
     View v;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+    {
         v=inflater.inflate(R.layout.board_schedule,container,false);
         return v;
     }

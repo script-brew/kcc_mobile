@@ -19,13 +19,15 @@ import com.kcc.kccm_project.R;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener
+{
     private EditText mEmail,mPassword,mName,mBirthday;
     private FirebaseAuth mAuth=FirebaseAuth.getInstance();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         mEmail = findViewById(R.id.signup_idtext);
@@ -36,13 +38,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     @Override
-    public void onClick(View view) {
-        //mAuth 중에 이메일,비밀번호 가입 메소드
+    public void onClick(View view)
+    {
+        // mAuth 중에 이메일,비밀번호 가입 메소드
         mAuth.createUserWithEmailAndPassword(mEmail.getText().toString(), mPassword.getText().toString())
                 .addOnCompleteListener(this, (task) -> {
-                        if (task.isSuccessful()) {
+                        if ( task.isSuccessful() )
+                        {
                             FirebaseUser user = mAuth.getCurrentUser();
-                            if(user!=null) {
+                            if ( user != null )
+                            {
                                 UserInfo userInfo = setUserInfo(user);
                                 Map<String, Object> userMap = new HashMap<>();
                                 userMap.put("uid", userInfo.getUid());
@@ -59,13 +64,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                         .addOnFailureListener((e) -> {
                                             Log.d("TAG", "Fail to store in firestore!");
                                         });
-                                //회원가입 완료
+
+                                // 회원가입 완료
                                 Toast.makeText(RegisterActivity.this, "Success to sign up!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 startActivity(intent);
                             }
 
-                        } else {
+                        }
+                        else
+                        {
                             Toast.makeText(RegisterActivity.this, "Sign up error",
                                     Toast.LENGTH_SHORT).show();
                         }
@@ -73,7 +81,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     });
     }
 
-    private UserInfo setUserInfo(FirebaseUser user) {
+    private UserInfo setUserInfo(FirebaseUser user)
+    {
         String uid = user.getUid();
         String email = mEmail.getText().toString();
         String name = mName.getText().toString();
@@ -85,6 +94,4 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         return userInfo;
     }
 
-
 }
-
