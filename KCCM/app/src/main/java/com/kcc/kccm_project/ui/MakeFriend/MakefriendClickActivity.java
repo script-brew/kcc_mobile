@@ -20,17 +20,18 @@ import com.kcc.kccm_project.R;
 
 import java.util.Map;
 
-public class MakefriendClickActivity extends AppCompatActivity {
-
+public class MakefriendClickActivity extends AppCompatActivity
+{
     private FirebaseFirestore mStore = FirebaseFirestore.getInstance();
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private FirebaseUser user = mAuth.getCurrentUser();
     private String id;
 
-
     private TextView mTitleText,mContentsText;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.board_makefriend_click);
 
@@ -41,12 +42,17 @@ public class MakefriendClickActivity extends AppCompatActivity {
         Log.e("ITEM DOCUMENT ID",id);
 
 
-        mStore.collection("MakefriendPost").document(id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        mStore.collection("MakefriendPost").document(id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>()
+        {
             @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if(task.isSuccessful()){
-                    if(task.getResult().exists()) {
-                        if (task.getResult() != null) {
+            public void onComplete(@NonNull Task<DocumentSnapshot> task)
+            {
+                if(task.isSuccessful())
+                {
+                    if(task.getResult().exists())
+                    {
+                        if (task.getResult() != null)
+                        {
                             Map<String, Object> snap = task.getResult().getData();
                             String title = String.valueOf(snap.get("MakefriendTitle"));
                             String contents = String.valueOf(snap.get("MakefriendContents"));
@@ -54,7 +60,8 @@ public class MakefriendClickActivity extends AppCompatActivity {
                             mContentsText.setText(contents);
                         }
                     }
-                    else{
+                    else
+                    {
                         Toast.makeText(MakefriendClickActivity.this,"삭제된문서입니다",Toast.LENGTH_SHORT).show();
                     }
                 }
