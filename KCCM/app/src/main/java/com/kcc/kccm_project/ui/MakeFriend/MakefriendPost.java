@@ -9,6 +9,7 @@ public class MakefriendPost {
     private String documentId;
     private String title;
     private String contents;
+    //public static String post ="MakefriendPost";
 
     @ServerTimestamp
     private Date date;

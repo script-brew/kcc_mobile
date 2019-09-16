@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.kcc.kccm_project.Entity.UserInfo;
@@ -21,9 +23,11 @@ import java.util.Map;
 public class MakefriendClickActivity extends AppCompatActivity {
 
     private FirebaseFirestore mStore = FirebaseFirestore.getInstance();
-
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private FirebaseUser user = mAuth.getCurrentUser();
     private String id;
-    UserInfo user;
+
+
     private TextView mTitleText,mContentsText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +37,7 @@ public class MakefriendClickActivity extends AppCompatActivity {
         mTitleText = findViewById(R.id.makefriend_click_title);
         mContentsText=findViewById(R.id.makefriend_click_contents);
         Intent getIntent = getIntent();
-        //id =getIntent.getStringExtra(user.getUid());
+        id =getIntent.getStringExtra(user.getUid());
         Log.e("ITEM DOCUMENT ID",id);
 
 

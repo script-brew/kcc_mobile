@@ -2,6 +2,7 @@ package com.kcc.kccm_project.ui.MakeFriend;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -37,7 +39,7 @@ public class MakefriendLayout extends Fragment implements View.OnClickListener, 
     private RecyclerView mPostRecyclerView;
     private MakefriendPostAdapter mAdapter;
     private List<MakefriendPost> mDatas;
-    UserInfo user;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -82,6 +84,7 @@ public class MakefriendLayout extends Fragment implements View.OnClickListener, 
     //아이템 클릭할때 intent로 값넘김김
     @Override
     public void onItemClick(View view, int position) {
+        FirebaseUser user = mAuth.getCurrentUser();
         Intent intent = new Intent(getActivity(),MakefriendClickActivity.class);
         intent.putExtra(user.getUid(),mDatas.get(position).getDocumentId());
         startActivity(intent);

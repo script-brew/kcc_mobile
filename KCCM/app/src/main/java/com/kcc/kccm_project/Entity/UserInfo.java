@@ -4,6 +4,7 @@ import com.kcc.kccm_project.util.DateUtil;
 
 public class UserInfo
 {
+
     private String email;
     private String schoolNumber;
     private String password;
@@ -11,6 +12,8 @@ public class UserInfo
     private String department;
     private String birthday;
     private String signUpDate;
+
+
 
 
     public UserInfo()

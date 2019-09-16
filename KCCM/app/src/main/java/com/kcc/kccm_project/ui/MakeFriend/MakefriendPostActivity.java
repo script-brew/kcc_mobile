@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 import com.kcc.kccm_project.R;
 
 import java.util.HashMap;
@@ -36,25 +37,30 @@ public class MakefriendPostActivity extends AppCompatActivity implements View.On
     }
     @Override
     public void onClick(View view) {
-        if(mAuth.getCurrentUser()!=null)
-        {
-            String postId=mStore.collection("MakefriendPost").document().getId();
+        if(mAuth.getCurrentUser()!=null) {
+            String postId = mStore.collection("MakefriendPost").document().getId();
+            //String postId = mStore.collection(MakefriendPost.post).document().getId();
+
             // 제목이 겹쳐도 덮어쓰지 않게하기 위함
             //FirebaseUser user = mAuth.getCurrentUser();
 
-            Map<String,Object> data = new HashMap<>(); //게시물 해쉬맵으로 저장
-            data.put("MakefriendPostId",postId);
-            data.put("MakefriendTitle",mTitle.getText().toString());
-            data.put("MakefriendContents",mContents.getText().toString());
+            Map<String, Object> data = new HashMap<>(); //게시물 해쉬맵으로 저장
+            data.put("MakefriendPostId", postId);
+            data.put("MakefriendTitle", mTitle.getText().toString());
+            data.put("MakefriendContents", mContents.getText().toString());
             data.put("Makefriendtimestamp", FieldValue.serverTimestamp());
-            mStore.collection("MakefriendPost").add(data).addOnSuccessListener((aVoid) -> {
+            mStore.collection("MakefriendPost").document(postId).set(data, SetOptions.merge());
+
+
+        /*.add(data).addOnSuccessListener((aVoid) -> {
             Log.d("TAG", "Success to store in firestore!");
         })
                 .addOnFailureListener((e) -> {
                     Log.d("TAG", "Fail to store in firestore!");
                 });
+        }*/
+            finish();
         }
-        finish();
 
     }
     /*

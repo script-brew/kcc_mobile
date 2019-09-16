@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".ui.RegisterActivity" />
         <activity android:name=".ui.MakeFriend.MakefriendPostActivity"/>
+        <activity android:name=".ui.MakeFriend.MakefriendClickActivity"/>
         <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
