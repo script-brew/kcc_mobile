@@ -1,52 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.LoginActivity">
-
-
-    <EditText
-        android:id="@+id/sign_idText"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="이메일"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/sign_passwordText"
-        android:layout_marginTop="150dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="비밀번호"
-        android:inputType="textPersonName" />
+    android:background="@drawable/gradient_bg"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp">
 
 
     <Button
         android:id="@+id/sign_signinbutton"
-        android:layout_marginTop="200dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="SIGN IN" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/shapelogin"
+        android:padding="15dp"
+        android:shadowColor="@android:color/transparent"
+        android:text="Log In"
+        app:layout_constraintBottom_toTopOf="@id/sign_signinbutton"
+        app:layout_constraintTop_toBottomOf="@+id/cbox" />
+
+    <Button
+        android:id="@+id/sign_registerbutton"
+        android:layout_width="match_parent"
+        android:hint="이메일"
+        android:inputType="textPersonName"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/shapesignup"
+        android:padding="15dp"
+        android:layout_margin="10dp"
+        android:shadowColor="@android:color/transparent"
+        android:text="Sign Up"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintTop_toBottomOf="@+id/sign_signinbutton" />
+
+    <CheckBox
+        android:id="@+id/cbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="0dp"
+        android:buttonTint="@color/colorWhite"
+        android:checked="true"
+        android:text="아이디 저장"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toTopOf="@+id/sign_signinbutton"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/find_pw"
+        app:layout_constraintTop_toBottomOf="@+id/sign_passwordText" />
+
+
+    <EditText
+        android:id="@+id/sign_passwordText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/shapeemail"
+        android:drawableLeft="@drawable/ic_lock_black_24dp"
+        android:drawablePadding="10dp"
+        android:hint="Password"
+        android:padding="15dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHighlight="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        app:layout_constraintTop_toBottomOf="@+id/sign_idText" />
+
+    <EditText
+        android:id="@+id/sign_idText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/shapeemail"
+        android:drawableLeft="@drawable/ic_person_black_24dp"
+        android:drawablePadding="10dp"
+        android:hint="Email"
+        android:padding="15dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHighlight="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/kookmin_logo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/sign_registerbutton"
-        android:layout_marginTop="250dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
+        android:layout_margin="3dp"
+        android:id="@+id/find_pw"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:clickable="true"
-        android:text="SIGN UP" />
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_lock_open_black_24dp"
+        android:drawablePadding="6dp"
+        android:text="비밀번호 찾기"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toTopOf="@+id/sign_signinbutton"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sign_passwordText" />
 
-</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
