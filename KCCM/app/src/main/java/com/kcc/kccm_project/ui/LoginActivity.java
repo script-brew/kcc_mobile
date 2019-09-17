@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.auth.User;
 import com.kcc.kccm_project.R;
 import com.kcc.kccm_project.controller.SignController;
+import com.kcc.kccm_project.util.signUtill.InvalidValueException;
 import com.kcc.kccm_project.util.signUtill.NullValueException;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener
@@ -58,19 +59,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         mAuth.signInWithEmailAndPassword(mEmail.getText().toString(), mPassword.getText().toString())
                                 .addOnCompleteListener(this, (task -> {
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    if (user != null)
+                                    if (user != null) {
                                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                    Toast.makeText(this, "Success to sign in!", Toast.LENGTH_SHORT).show();
-
-                                }))
-                                .addOnFailureListener(this, (task -> {
-                                    Toast.makeText(this, "Fail to sign in!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(this, "Success to sign in!", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(this, "Fail to sign in!", Toast.LENGTH_SHORT).show();
+                                    }
                                 }));
                     } else {
-
+                        Toast.makeText(this, "Fail to sign in!", Toast.LENGTH_SHORT).show();
                     }
-
-                } catch (NullValueException e) {
+                } catch (NullValueException | InvalidValueException e) {
                     Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
                 break;

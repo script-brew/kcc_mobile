@@ -13,7 +13,6 @@ import java.util.regex.Pattern;
 public class SignServiceLogic implements SignService
 {
     private SignStore signStore;
-    // private String url = "https://us-central1-mobile-kcc.cloudfunctions.net/signup";
 
     public SignServiceLogic()
     {
@@ -35,19 +34,31 @@ public class SignServiceLogic implements SignService
     @Override
     public UserInfo findUser(String schoolNumber)
     {
+        // TODO: 관리자가 사용하는 기능/ 친구 찾기 기능에서도 사용할 수 있음
         return null;
     }
 
     @Override
     public void modifyUser(UserInfo userInfo)
     {
+        //TODO: 사용자가 회원정보를 변경하려고 할 때 접근하는 메소드
         return;
     }
 
     @Override
     public void removeUser(String schoolNumber)
     {
+        //TODO: 유저정보를 삭제하는 기능
         return;
+    }
+
+    @Override
+    public String isValid(String email, String password) {
+        if(isValidEmail(email) && isValidPassword(password)) {
+            return "OK";
+        } else {
+            throw new InvalidValueException("Invalid email or password");
+        }
     }
 
     private boolean isValidEmail(String inputEmail)

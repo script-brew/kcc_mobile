@@ -8,4 +8,5 @@ public interface SignService
     public UserInfo findUser(String schoolNumer);
     public void modifyUser(UserInfo userInfo);
     public void removeUser(String schoolNumber);
+    public String isValid(String email, String password);
 }

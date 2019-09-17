@@ -1,17 +1,14 @@
 package com.kcc.kccm_project.controller;
 
-import com.android.volley.RequestQueue;
-import com.google.protobuf.NullValue;
 import com.kcc.kccm_project.Entity.UserInfo;
 import com.kcc.kccm_project.service.SignService;
 import com.kcc.kccm_project.service.logic.ServiceFactoryLogic;
-import com.kcc.kccm_project.util.signUtill.NoSuchUserException;
+import com.kcc.kccm_project.util.signUtill.InvalidValueException;
 import com.kcc.kccm_project.util.signUtill.NullValueException;
 
 public class SignController
 {
     private SignService signService;
-    RequestQueue queue;
 
     public SignController()
     {
@@ -54,7 +51,8 @@ public class SignController
             throw new NullValueException("password value is null");
         }
 
-        return "OK";
+        String response = signService.isValid(email, password);
+        return response;
     }
     
 } // end class SignController
