@@ -14,16 +14,9 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".ui.RegisterActivity" />
-<<<<<<< Updated upstream
         <activity android:name=".ui.MakeFriend.MakefriendPostActivity"/>
         <activity android:name=".ui.MakeFriend.MakefriendClickActivity"/>
         <activity android:name=".ui.LoginActivity">
-=======
-        <activity android:name=".ui.MakeFriend.MakefriendPostActivity" />
-        <activity
-            android:name=".ui.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar">
->>>>>>> Stashed changes
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
