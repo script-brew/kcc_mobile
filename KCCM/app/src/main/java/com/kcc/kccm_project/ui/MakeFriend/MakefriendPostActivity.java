@@ -8,6 +8,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
@@ -37,8 +38,9 @@ public class MakefriendPostActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View view) {
         if(mAuth.getCurrentUser()!=null) {
-            //String postId = mStore.collection("MakefriendPost").document().getId();
-            String postId = mStore.collection(MakefriendPost.post).document().getId();
+
+            String postId = mStore.collection("MakefriendPost").document().getId();
+            //String postId = mStore.collection(MakefriendPost.post).document().getId();
             // 제목이 겹쳐도 덮어쓰지 않게하기 위함
             //FirebaseUser user = mAuth.getCurrentUser();
             Map<String, Object> data = new HashMap<>(); //게시물 해쉬맵으로 저장

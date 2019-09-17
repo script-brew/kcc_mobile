@@ -62,7 +62,7 @@ public class MakefriendLayout extends Fragment implements View.OnClickListener, 
                     mDatas.clear();//데이터 중복을 막기위해 클리어하고 for문 시자
                     for (DocumentSnapshot snap : queryDocumentSnapshots.getDocuments()) {
                         Map<String, Object> shot = snap.getData(); // 게시판에 써진 글을 map에저장
-                        String documentId = String.valueOf(shot.get("MakefriendPost"));
+                        String documentId = String.valueOf(shot.get("MakefriendPostId"));
                         String title = String.valueOf(shot.get("MakefriendTitle"));
                         String contents = String.valueOf(shot.get("MakefriendContents"));
                         MakefriendPost data = new MakefriendPost(documentId, title, contents); //post 생성자를 이용해서 게시문을 넣어줌
@@ -86,7 +86,7 @@ public class MakefriendLayout extends Fragment implements View.OnClickListener, 
     public void onItemClick(View view, int position) {
         //String documentId = mStore.collection("MakefriendPost").document().getId();
         Intent intent = new Intent(getActivity(),MakefriendClickActivity.class);
-        intent.putExtra("MakefriendPost",mDatas.get(position).getDocumentId());
+        intent.putExtra(MakefriendPost.post,mDatas.get(position).getDocumentId());
         startActivity(intent);
     }
 

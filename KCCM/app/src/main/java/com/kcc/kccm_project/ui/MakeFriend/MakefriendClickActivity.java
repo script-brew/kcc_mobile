@@ -32,13 +32,14 @@ public class MakefriendClickActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        //String postId=mStore.collection("MakefreindPost").document("MakefriendPostId").getId();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.board_makefriend_click);
         mTitleText = findViewById(R.id.makefriend_click_title);
         mContentsText=findViewById(R.id.makefriend_click_contents);
         Intent getIntent = getIntent();
-        id =getIntent.getStringExtra("MakefreindPost");
-        Log.e("ITEM DOCUMENT ID",id);
+        id =getIntent.getStringExtra(MakefriendPost.post);
+        //Log.e("ITEM DOCUMENT ID",id);
 
 
         mStore.collection("MakefriendPost").document(id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>()
