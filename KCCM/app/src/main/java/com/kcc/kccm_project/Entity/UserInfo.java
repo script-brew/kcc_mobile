@@ -14,8 +14,6 @@ public class UserInfo
     private String signUpDate;
 
 
-
-
     public UserInfo()
     {
         this.signUpDate = DateUtil.today();

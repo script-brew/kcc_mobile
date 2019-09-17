@@ -84,9 +84,9 @@ public class MakefriendLayout extends Fragment implements View.OnClickListener, 
     //아이템 클릭할때 intent로 값넘김김
     @Override
     public void onItemClick(View view, int position) {
-        FirebaseUser user = mAuth.getCurrentUser();
+        //String documentId = mStore.collection("MakefriendPost").document().getId();
         Intent intent = new Intent(getActivity(),MakefriendClickActivity.class);
-        intent.putExtra(user.getUid(),mDatas.get(position).getDocumentId());
+        intent.putExtra("MakefriendPost",mDatas.get(position).getDocumentId());
         startActivity(intent);
     }
 

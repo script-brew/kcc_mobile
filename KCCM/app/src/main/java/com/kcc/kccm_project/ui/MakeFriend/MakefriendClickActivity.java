@@ -34,11 +34,10 @@ public class MakefriendClickActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.board_makefriend_click);
-
         mTitleText = findViewById(R.id.makefriend_click_title);
         mContentsText=findViewById(R.id.makefriend_click_contents);
         Intent getIntent = getIntent();
-        id =getIntent.getStringExtra(user.getUid());
+        id =getIntent.getStringExtra("MakefreindPost");
         Log.e("ITEM DOCUMENT ID",id);
 
 
