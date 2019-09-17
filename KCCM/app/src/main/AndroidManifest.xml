@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kcc.kccm_project">
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,9 +16,7 @@
         <activity android:name=".ui.RegisterActivity" />
         <activity android:name=".ui.MakeFriend.MakefriendPostActivity"/>
         <activity android:name=".ui.MakeFriend.MakefriendClickActivity"/>
-        <activity
-            android:name=".ui.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
