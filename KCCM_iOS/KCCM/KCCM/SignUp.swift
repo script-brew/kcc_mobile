@@ -2,11 +2,9 @@
 //  ViewController2.swift
 //  KCCM
 //
-//  Created by 김용호 on 09/08/2019.
 //  Copyright © 2019 kcc. All rights reserved.
 //
-
-// 회원가입 화면
+// sign-up view
 
 import Foundation
 import Firebase

@@ -2,11 +2,10 @@
 //  ViewController.swift
 //  KCCM
 //
-//  Created by 김용호 on 08/08/2019.
 //  Copyright © 2019 kcc. All rights reserved.
 //
 
-// 로그인 화면
+// sign-in view
 
 import UIKit
 import Firebase
@@ -35,4 +34,3 @@ class SignIn: UIViewController {
     }
     
 }
-

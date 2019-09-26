@@ -2,7 +2,6 @@
 //  AppDelegate.swift
 //  KCCM
 //
-//  Created by 김용호 on 08/08/2019.
 //  Copyright © 2019 kcc. All rights reserved.
 //
 
@@ -18,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        let db = Firestore.firestore()
+        // let db = Firestore.firestore()
         return true
     }
 
