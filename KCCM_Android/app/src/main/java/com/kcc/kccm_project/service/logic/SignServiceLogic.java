@@ -64,7 +64,7 @@ public class SignServiceLogic implements SignService
     private boolean isValidEmail(String inputEmail)
     {
         // e-mail regular expression: check input value is whether e-mail-form or not
-        final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+        final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("[\\w\\~\\-\\.]+@[\\w\\~\\-]+(\\.[\\w\\~\\-]+)+", Pattern.CASE_INSENSITIVE);
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(inputEmail);
 
         // return true if it's e-mail-form, else return false
@@ -73,8 +73,8 @@ public class SignServiceLogic implements SignService
 
     private boolean isValidPassword(String inputPW)
     {
-        // password regular expression: check input value is 8 to 15 length, and only alpha-numeric-form
-        final Pattern VALID_PASSWORD_REGEX = Pattern.compile("((?=.*[a-z])(?=.*\\d)(?=.*[A-Z])(?=.*[@#$%!]).{8,20})");
+        // password regular expression: check input value is whether alpha-numeric-form or not
+        final Pattern VALID_PASSWORD_REGEX = Pattern.compile("^[a-zA-Z0-9]*$");
         Matcher matcher = VALID_PASSWORD_REGEX.matcher(inputPW);
 
         // return true if it's correct-password-form, else return false
