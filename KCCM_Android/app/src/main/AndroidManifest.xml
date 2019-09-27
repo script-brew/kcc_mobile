@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".ui.MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ui.MainActivity"></activity>
+        <activity android:name=".ui.Dues.DuesActivity"/>
+        <activity android:name=".ui.Study.StudyActivity"/>
         <activity android:name=".ui.RegisterActivity" />
-        <activity android:name=".ui.MakeFriend.MakefriendPostActivity"/>
-        <activity android:name=".ui.MakeFriend.MakefriendClickActivity"/>
+        <activity android:name=".ui.Gathering.GatheringActivity"/>
+        <activity android:name=".ui.Gathering.GatheringPostActivity" />
+        <activity android:name=".ui.Gathering.GatheringClickActivity" />
         <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
