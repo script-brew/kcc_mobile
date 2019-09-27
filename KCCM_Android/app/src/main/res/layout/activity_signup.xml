@@ -1,77 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_register"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp"
     tools:context=".ui.RegisterActivity">
 
 
-    <EditText
-        android:id="@+id/signup_idtext"
-        android:layout_marginTop="130dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:hint="이메일" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="130dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_height="50dp"
+        android:id="@+id/sign_id_box"
+        >
+        <EditText
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/shapelogin"
+            android:id="@+id/signup_idtext"
+            android:layout_marginRight="100dp"
+            android:layout_width="match_parent"
+            app:layout_constraintRight_toLeftOf="@+id/check_over"
+            android:layout_height="50dp"
+            android:hint="이메일" />
+
+        <Button
+            android:background="@drawable/shapesignup"
+            android:id="@+id/check_over"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="중복확인"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/sign_passwordText"
+            app:layout_constraintLeft_toRightOf="@+id/sign_idText"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <EditText
+        app:layout_constraintTop_toBottomOf="@id/sign_id_box"
         android:id="@+id/signup_passwordtext"
-        android:layout_marginTop="170dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
+        android:background="@drawable/shapelogin"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:hint="비밀번호" />
 
     <EditText
+        app:layout_constraintTop_toBottomOf="@id/signup_passwordtext"
         android:id="@+id/signup_schoolnumbertext"
-        android:layout_marginTop="210dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shapelogin"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:hint="학번"
         android:inputType="textPersonName" />
 
     <EditText
+        app:layout_constraintTop_toBottomOf="@id/signup_schoolnumbertext"
         android:id="@+id/signup_departmenttext"
-        android:layout_marginTop="250dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/shapelogin"
+        android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:hint="학과"
         android:inputType="textPersonName" />
 
     <EditText
+        app:layout_constraintTop_toBottomOf="@id/signup_departmenttext"
         android:id="@+id/signup_nametext"
-        android:layout_marginTop="290dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shapelogin"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:hint="이름" />
 
     <EditText
+        app:layout_constraintTop_toBottomOf="@id/signup_nametext"
         android:id="@+id/signup_birthdaytext"
-        android:layout_marginTop="330dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
+        android:background="@drawable/shapelogin"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:hint="나이" />
 
 
     <Button
+        app:layout_constraintTop_toBottomOf="@id/signup_birthdaytext"
         android:id="@+id/signup_button"
-        android:layout_marginTop="400dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginLeft="80dp"
+        android:background="@drawable/shapesignup"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+
+        android:layout_height="50dp"
         android:text="회원가입" />
 
-</RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
