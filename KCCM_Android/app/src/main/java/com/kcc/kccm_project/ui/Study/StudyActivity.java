@@ -1,6 +1,7 @@
 package com.kcc.kccm_project.ui.Study;
 
 import android.os.Bundle;
+import android.os.Debug;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,7 +15,6 @@ public class StudyActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.board_study);
-
 
     }
 
