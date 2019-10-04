@@ -37,8 +37,9 @@ public class jsonToXlsxConverter
         cell = row.createCell(1); // create Cell no.2
         cell.setCellValue("나이"); // input Cell no.2 value
 
-        for(int i = 0; i < mItems.size() ; i++){ // input Data Excel
-            row = sheet.createRow(i+1);
+        for ( int i=0; i < mItems.size() ; i++ )
+        { // input Data Excel
+            row = sheet.createRow(i + 1);
             cell = row.createCell(0);
             cell.setCellValue(mItems.get(i).getName());
             cell = row.createCell(1);
@@ -57,7 +58,7 @@ public class jsonToXlsxConverter
             e.printStackTrace();
         }
 
-        Toast.makeText(getApplicationContext(),xlsFile.getAbsolutePath()+"에 저장되었습니다",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),xlsFile.getAbsolutePath()+"에 저장되었습니다.",Toast.LENGTH_SHORT).show();
 
         Uri path = Uri.fromFile(xlsFile);
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
